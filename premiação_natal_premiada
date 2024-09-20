@@ -1,0 +1,30 @@
+#include <iostream>
+#include <locale.h>
+#include <string>
+
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    int horaExtra, horaFalta, premio;
+    float h;
+    string name;
+    
+    cout << "------------------------ PRÊMIO DE NATAL PARA FUNCIONÁRIOS ------------------------\n";
+    
+    cout << "Informe o nome do funcionário: ";
+    cin >> name;
+    cout << "Número de horas extras do funcionário " << name << ": ";
+    cin >> horaExtra;
+    cout << "Número de horas faltas do funcionário " << name << ": ";
+    cin >> horaFalta;
+    h = (horaExtra * 60) - ((2/3) * (horaFalta * 60));
+    
+    if(h > 2400) premio = 500;
+    if(h >= 1800 and h <= 2400) premio = 400;
+    if(h >= 1200 and h < 1800) premio = 300;
+    if(h > 600 and h < 1200) premio = 200;
+    if(h > 2400) premio = 100;
+    
+    cout << "O funcionário " << name <<  "ganhou: R$" << premio;
+}
