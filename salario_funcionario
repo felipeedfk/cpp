@@ -1,0 +1,38 @@
+#include <iostream>
+#include <locale.h>
+
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    
+    float salarioFinal, salarioLiquido, salarioBruto, salarioMinimo, salarioHoraTrabalhada, salarioExtra, qtdHorasTrabalhadas, qtdHorasExtras, irrf;
+    int dependentes;
+    
+    cout << "Valor do salário mínimo: R$";
+    cin >> salarioMinimo;
+    cout << "Informe o número de horas trabalhadas: ";
+    cin >> qtdHorasTrabalhadas;
+    cout << "Informe o numero de dependentes: ";
+    cin >> dependentes;
+    cout << "Quantidade de horas extras trabalhadas: ";
+    cin >> qtdHorasExtras;
+    
+    
+    salarioHoraTrabalhada = salarioMinimo / 5;
+    salarioBruto = qtdHorasTrabalhadas * salarioHoraTrabalhada;
+    if(dependentes > 0) for(int i = 0; i < dependentes; i++) salarioBruto += 32.0;
+    salarioExtra = (salarioHoraTrabalhada * 1.5) * qtdHorasExtras;
+    salarioBruto += salarioExtra;
+    
+    if(salarioBruto < 200) irrf = 0;
+    if(salarioBruto >= 200 and salarioBruto < 500) irrf = salarioBruto * 0.1;
+    if(salarioBruto >= 500) irrf = salarioBruto * 0.2;
+    
+    salarioLiquido = salarioBruto - irrf;
+    
+    if(salarioLiquido <= 350) salarioFinal = salarioLiquido + 100;
+    if(salarioLiquido > 350) salarioFinal = salarioLiquido + 50;
+    
+    cout << "Salário final do funcionário: R$" << salarioFinal;
+}
