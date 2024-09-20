@@ -8,7 +8,7 @@ int main()
     float n1, n2, n3, mp;
     int lab = 2, aa = 3, ef = 5;
     char conceito;
-    
+
     cout << "------------------------ MÉDIA PONDERADA ------------------------\n";
     cout << "Primeira nota: ";
     cin >> n1;
@@ -16,13 +16,20 @@ int main()
     cin >> n2;
     cout << "Terceira nota: ";
     cin >> n3;
-    mp = (n1*lab+n2*aa+n3*ef)/(lab+aa+ef);
-    
-    (mp < 5) ? conceito = 'E' : conceito = ' ';
-    (mp > 5 and mp <= 6) ? conceito = 'D' : conceito = ' ';
-    (mp > 6 and mp <= 7) ? conceito = 'C' : conceito = ' ';
-    (mp > 7 and mp <= 8) ? conceito = 'B' : conceito = ' ';
-    (mp > 8 and mp <= 10) ? conceito = 'A' : conceito = ' ';
-    
-    cout << "Média final do aluno é " << mp << " e seu conceito é " << conceito;
+    mp = (n1 * lab + n2 * aa + n3 * ef) / (lab + aa + ef);
+
+    if (mp < 5)
+        conceito = 'E';
+    else if (mp >= 5 && mp <= 6)
+        conceito = 'D';
+    else if (mp > 6 && mp <= 7)
+        conceito = 'C';
+    else if (mp > 7 && mp <= 8)
+        conceito = 'B';
+    else if (mp > 8 && mp <= 10)
+        conceito = 'A';
+
+    cout << "Média final do aluno é " << mp << " e seu conceito é " << conceito << endl;
+
+    return 0;
 }
