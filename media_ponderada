@@ -1,0 +1,28 @@
+#include <iostream>
+#include <locale.h>
+
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    float n1, n2, n3, mp;
+    int lab = 2, aa = 3, ef = 5;
+    char conceito;
+    
+    cout << "------------------------ MÉDIA PONDERADA ------------------------\n";
+    cout << "Primeira nota: ";
+    cin >> n1;
+    cout << "Segunda nota: ";
+    cin >> n2;
+    cout << "Terceira nota: ";
+    cin >> n3;
+    mp = (n1*lab+n2*aa+n3*ef)/(lab+aa+ef);
+    
+    (mp < 5) ? conceito = 'E' : conceito = ' ';
+    (mp > 5 and mp <= 6) ? conceito = 'D' : conceito = ' ';
+    (mp > 6 and mp <= 7) ? conceito = 'C' : conceito = ' ';
+    (mp > 7 and mp <= 8) ? conceito = 'B' : conceito = ' ';
+    (mp > 8 and mp <= 10) ? conceito = 'A' : conceito = ' ';
+    
+    cout << "Média final do aluno é " << mp << " e seu conceito é " << conceito;
+}
