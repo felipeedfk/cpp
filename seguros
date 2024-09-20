@@ -1,0 +1,36 @@
+#include <iostream>
+#include <locale.h>
+#include <string>
+
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    char grupoDeRisco;
+    int idade, codigoSeguro;
+    
+    cout << "------------------------ SEGUROS ------------------------\n";
+    cout << "Informe sua idade: ";
+    cin >> idade;
+    if(idade >= 18 and idade <= 70) {
+        while(true) {
+            cout << "Escolha o grupo de risco: [b] - Baixo | [m] - Médio | [a] - Alto\n";
+            cin >> grupoDeRisco;
+            if(grupoDeRisco == 'b' or grupoDeRisco == 'm' or grupoDeRisco == 'a') break;
+            cout << "Não existe o grupo de risco digitado!\n";
+        }
+        if(idade <= 24 and grupoDeRisco == 'b') codigoSeguro = 7;
+        if(idade <= 24 and grupoDeRisco == 'm') codigoSeguro = 8;
+        if(idade <= 24 and grupoDeRisco == 'a') codigoSeguro = 9;
+        if(idade >= 25 and idade <= 40 and grupoDeRisco == 'b') codigoSeguro = 4;
+        if(idade >= 25 and idade <= 40 and grupoDeRisco == 'm') codigoSeguro = 5;
+        if(idade >= 25 and idade <= 40 and grupoDeRisco == 'a') codigoSeguro = 6;
+        if(idade >= 41 and grupoDeRisco == 'b') codigoSeguro = 1;
+        if(idade >= 41 and grupoDeRisco == 'm') codigoSeguro = 2;
+        if(idade >= 41 and grupoDeRisco == 'a') codigoSeguro = 3;
+        
+        cout << "Seu código do seguro é: " << codigoSeguro;
+    } else {
+        cout << "Você não tem permissão para ter apólices de seguros!";
+    }
+}
